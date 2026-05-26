@@ -1,0 +1,38 @@
+INVENTARIO = [
+    {"producto": "Camisa Casual", "stock": 12, "ventas_prom": 5},
+    {"producto": "Pantalón Denim", "stock": 4, "ventas_prom": 8},
+    {"producto": "Chaqueta Lona", "stock": 8, "ventas_prom": 3} # Corregido: '8' a 8
+]
+
+STOCK_MINIMO_SEGURIDAD = 10
+
+def calcular_pedido(stock_actual, stock_minimo):
+    """Calcula la cantidad a pedir si el stock es bajo."""
+    if stock_actual < stock_minimo:
+        return stock_minimo - stock_actual
+    return 0
+
+def clasificar_prioridad(stock):
+    """Asigna la prioridad de pedido según el nivel de existencias."""
+    if stock < 5:
+        prioridad = "Alta"
+    elif 5 <= stock < 10:
+        prioridad = "Media"
+    else:
+        prioridad = "Baja" # Se define prioridad para stock >= 10
+    return prioridad
+
+def generar_informe_inventario(data):
+    """Procesa los datos y genera el informe para gerencia."""
+    for item in data: # Corregido: Referencia a 'data'
+        stock_actual = item['stock'] # Corregido: 'cantidad' a 'stock'
+        nombre = item['producto']
+        
+        try:
+            cantidad_a_pedir = calcular_pedido(stock_actual, STOCK_MINIMO_SEGURIDAD)
+            prioridad_pedido = clasificar_prioridad(stock_actual)
+            print(f"Producto: {nombre} | Prioridad: {prioridad_pedido} | Pedir: {cantidad_a_pedir}")
+        except Exception as e:
+            print(f"Error procesando {nombre}: {e}")
+
+generar_informe_inventario(INVENTARIO)

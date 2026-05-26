@@ -1,0 +1,46 @@
+# ==========================================
+# PROBLEMA 5
+# Control de horas trabajadas por recursos
+# ==========================================
+
+# Matriz:
+# [Nombre del Recurso, Lunes, Martes, Miércoles, Jueves, Viernes]
+
+recursos = [
+    ["Carlos", 8, 8, 9, 8, 10],
+    ["Ana", 7, 8, 8, 7, 8],
+    ["Luis", 9, 9, 9, 9, 9],
+    ["Sofia", 8, 8, 8, 8, 8]
+]
+
+# Constante del límite de horas estándar
+UMBRAL_HORAS = 40
+
+
+# Función para calcular el total de horas
+# y clasificar la jornada laboral
+def calcular_jornada(horas):
+    total_horas = sum(horas)
+
+    if total_horas > UMBRAL_HORAS:
+        clasificacion = "Sobretiempo"
+    else:
+        clasificacion = "Horario Estándar"
+
+    return total_horas, clasificacion
+
+
+# Programa principal
+print("========== REPORTE SEMANAL ==========\n")
+
+for recurso in recursos:
+
+    nombre = recurso[0]
+    horas_trabajadas = recurso[1:]
+
+    total, clasificacion = calcular_jornada(horas_trabajadas)
+
+    print(f"Recurso: {nombre}")
+    print(f"Total de horas trabajadas: {total}")
+    print(f"Clasificación: {clasificacion}")
+    print("------------------------------------")

@@ -1,0 +1,33 @@
+# ============================================
+# Nombre del estudiante: [Octavio Adolfo Quintero Guzman]
+# Grupo: [213022_468]
+# Programa: [20233 INGENIERÍA DE SISTEMAS]
+# Código Fuente: Autoría propia
+# ============================================
+while True:
+    try:
+        # Solicitar temperatura
+        temp = int(input("Ingrese la temperatura del horno (°C): "))
+        
+        # Validar que sea positiva
+        if temp < 0:
+            print("Error: la temperatura debe ser un número entero positivo.")
+            continue
+
+        # Evaluar temperatura
+        if temp > 200:
+            print("Alerta: enfriamiento")
+        elif temp < 180:
+            print("Alerta: calentamiento")
+        else:
+            print("Temperatura óptima")
+
+        # Preguntar si desea continuar
+        opcion = input("¿Desea continuar? (1: sí, 0: no): ")
+        
+        if opcion == "0":
+            print("Monitoreo finalizado.")
+            break
+
+    except ValueError:
+        print("Error: debe ingresar un número entero válido.")

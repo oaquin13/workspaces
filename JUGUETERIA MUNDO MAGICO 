@@ -1,0 +1,24 @@
+# ============================================
+# Nombre del estudiante: [Octavio Adolfo Quintero Guzman]
+# Grupo: [213022_468]
+# Programa: [20233 INGENIERÍA DE SISTEMAS]
+# Código Fuente: Autoría propia
+# ============================================
+# Programa que calcula el peso total de un pedido
+# en la juguetería Mundo Mágico
+
+# Constantes (pesos en gramos)
+PESO_PAYASO = 112
+PESO_MUNECA = 75
+
+# Entrada de datos
+cantidad_payasos = int(input("Ingrese la cantidad de payasos: "))
+cantidad_munecas = int(input("Ingrese la cantidad de muñecas: "))
+
+# Proceso
+peso_total = (cantidad_payasos * PESO_PAYASO) + (cantidad_munecas * PESO_MUNECA)
+
+# Salida
+print("--------------------------------")
+print("Peso total del pedido:", peso_total, "gramos")
+print("--------------------------------")
